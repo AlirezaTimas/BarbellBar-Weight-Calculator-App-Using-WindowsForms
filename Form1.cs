@@ -15,10 +15,14 @@ namespace BarbellBar_weight_calculator_app_using_WindowsForms
             InitializeComponent();
             InfoLabel.Text = "Enter the amount of weight: ";
             CalculateButton.Enabled = false;
+            this.AcceptButton = CalculateButton;
+            
+            
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
+           
             try
             {
                 userWeight = int.Parse(TextBox.Text);
@@ -52,13 +56,8 @@ namespace BarbellBar_weight_calculator_app_using_WindowsForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\nOnly integers are allowed (Characters/symbols are not allowed)", "Error");
+                MessageBox.Show(ex.Message + "\nNote : Pay attention that only integers are allowed (Characters/symbols are not allowed)", "Error");
             }
-        }
-
-        private void ResetButton_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
@@ -66,6 +65,7 @@ namespace BarbellBar_weight_calculator_app_using_WindowsForms
             if (TextBox.Text.Length <= 0) { CalculateButton.Enabled = false; }
             else { CalculateButton.Enabled = true; }
         }
+       
     }
 }
 
